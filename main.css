@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    /* background: #10e6c2;     */
+    margin: 20px;
+    text-align: center;
+}
+
+html {
+    background-image: url(https://krot.info/uploads/posts/2021-12/1638488971_20-krot-info-p-peizazhi-baikala-krasivie-foto-21.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.section p {
+    margin-bottom: 5px;
+}
+
+ul {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+li {
+    list-style-type: disc;
+}
+
+.section:nth-child(even) {
+}
+
+.personal-info {
+    display: flex;
+    align-items: center;
+}
+
+.photo img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.info {
+    flex: 1;
+}

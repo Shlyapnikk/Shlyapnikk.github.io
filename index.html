@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Чумаченко И.В.</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <h1>Чумаченко И.В.</h1>
+    <div class="photo">
+        <img src="https://paypress.ru/uploads/2021/02/1614525748-1680x1050-px-7-alien-comedy-creature-gremlins-1730891-wallhere-com.jpeg">
+    </div>
+    <div class="section">
+        <h2>Личные данные</h2>
+        <div class="personal-info">
+            
+            <div class="info">
+                <p>Имя: Чумаченко Илья Викторович</p>
+                <p>Дата рождения: 30.06.2003</p>
+                <p>Адрес: Москва, РФ</p>
+                <p>Тел: 8 (988) 350-82-43 </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>Образование:</h2>
+        <p>Школа: МБОУ СОШ №28 2010-2021г.у.</p>
+        <p>Университет: МГТУ "СТАНКИН"</p>
+    </div>
+    
+    <div class="section">
+        <h2>Опыт работы</h2>
+        <p>Компания: Межгалактическая компания по транспортировке гремлинов</p>
+        <p>Должность: Директор компании</p>
+        <p>Период работы: Ноябрь 2710 - Июнь 3849</p>
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Дополнительная информация</h2>
+        <p>Межгалактический чемпион по всему что только можно</p>
+        <p>Центрировал галактику вокруг Земли</p>
+    </div>
+
+
+        <title>Автообновление каждые 10 секунд</title>
+        <script>
+                function autoRefresh() {
+                  myFunction();
+            setTimeout(autoRefresh, 10000);
+          }
+
+          function sleep(ms) {
+            return new Promise((resolve) => setTimeout(resolve, ms));
+          }
+
+          function myFunction() {
+            (async () => {
+              let response = await fetch(
+                "https://kav-api.kovalev.team/servodrive/lastActualData?servoDriveId=1"
+              );
+              let el = document.getElementById("demo");
+              el.innerHTML = "";
+              let text = await response.text();
+              for (const [key, value] of Object.entries(JSON.parse(text)[0])) {
+                const newEl = document.createElement("li");
+                newEl.appendChild(
+                  document.createTextNode(`${key}: ${value}`)
+                );
+                el.appendChild(newEl);
+                await sleep(100);
+              }
+            })();
+          }
+
+              window.onload = function () {
+            autoRefresh();
+          };
+        </script>
+
+
+    <div class="section">
+          <h2>Даннные со станка</h2>
+          <button class="btn" onclick="myFunction()">Нажми чтобы включить обновление</button>
+          <ul id="demo"></ul>
+    </div>
+</body>
+</html>
